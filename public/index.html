@@ -5,19 +5,46 @@
     <meta charset="utf-8">
     <title>187 on a undercover cop</title>
     <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   </head>
   <body>
-    <h2> Data </h2>
+    <div class row>
+      <div class="col-md-8">
+        <div class="btn-group">
+        <button type="button" class="" id="2004"> 2004 </button>
+        <button type="button" class="" id="2005"> 2005 </button>
+        <button type="button" class="" id="2006"> 2006 </button>
+        <button type="button" class="" id="2007"> 2007 </button>
+        <button type="button" class="" id="2008"> 2008 </button>
+        <button type="button" class="" id="2009"> 2009 </button>
+        <button type="button" class="" id="2010"> 2010 </button>
+        <button type="button" class="" id="2011"> 2011 </button>
+      </div>
+    </div>
 
   <script type="text/javascript" src="d3/d3.js"></script>
   <script type="text/javascript">
 
-  var dataset = d3.csv("./data/2004.csv")
-  .row(function(d) { return {key: d.key, vaue: +d.value}; })
-  .get(function(error, rows) { return(rows); });
+  d3.csv("./data/2004.csv", function(dataset) {
+    // console.log(dataset);
 
-  console.log(dataset);
+averageAge = function() {
+    var totalAge = 0;
+    var idiots = [];
+    dataset.forEach(function(d) {
+      d.age = +d.age;
+      if (isNaN(d.age)) {
+        idiots.push(d);
+        dataset.splice(dataset.indexOf(d), 1);
+      } else {
+        totalAge += d.age;
+      }
+    });
+
+    var avgAge = totalAge / dataset.length;
+    console.log(avgAge);
+  }();
+});
 
 
   </script>
