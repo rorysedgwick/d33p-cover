@@ -14,7 +14,6 @@ server.route({
     return reply.file("./public/index.html");
   }
 });
-
 server.route({
   method: "GET",
   path  : "/{param*}",
