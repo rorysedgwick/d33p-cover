@@ -10,3 +10,11 @@ It is primarily intended to be an week-long learning experience focusing on d3 m
 Javascript data manipulation and data set formatting and preparation, as well as an exercise in project
 planning and decision making. The finished project will then be be submitted on Friday in time for the
 deadline of May 1st.
+
+### To run this project yourself:
+
+``` git clone ``` into a new directory  
+``` npm install ``` the node modules  
+``` node app.js ``` to start the server  
+  visit http://localhost:8000 in your browser  
+``` behold ```  
