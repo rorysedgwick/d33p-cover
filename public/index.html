@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>187 on a undercover cop</title>
+    <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
+  </head>
+  <body>
+    <h2> Data </h2>
+
+  <script type="text/javascript" src="d3/d3.js"></script>
+  <script type="text/javascript">
+
+  var dataset = d3.csv("./data/2004.csv")
+  .row(function(d) { return {key: d.key, vaue: +d.value}; })
+  .get(function(error, rows) { return(rows); });
+
+  console.log(dataset);
+
+
+  </script>
+  </body>
+
+</html>

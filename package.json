@@ -1,0 +1,23 @@
+{
+  "name": "d33p-cover",
+  "version": "1.0.0",
+  "description": "Exploring d3 using the Bank of England public data sets",
+  "main": "app.js",
+  "dependencies": {
+    "hapi": "^8.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rorysedgwick/d33p-cover.git"
+  },
+  "author": "Rory Sedgwick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rorysedgwick/d33p-cover/issues"
+  },
+  "homepage": "https://github.com/rorysedgwick/d33p-cover"
+}
