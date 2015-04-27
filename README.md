@@ -13,8 +13,8 @@ deadline of May 1st.
 
 ### To run this project yourself:
 
-``` git clone ```
-``` npm install ```
-``` node app.js ```
-visit http://localhost:8000
-``` behold ```
+``` git clone ```  
+``` npm install ```  
+``` node app.js ```  
+visit http://localhost:8000  
+``` behold ```  
