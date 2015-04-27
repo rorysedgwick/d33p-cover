@@ -17,5 +17,20 @@
 
 # Graphical representation:
     - is column chart still best way to display data points?
-    - line chart requires one axis to be time therefore only suitable to
+    - line chart requires one axis to be time(?)
+
+
+
+    --------------------------------------------------------------------------------------------
+
+
+# Steps:
+
+    - Basic server for index - hapi static
+    - Accessing data:
+        - whole files saved in public folder;
+        - on request/click:
+            - import selected CSV
+            - functions populate new array/data objects that are used for d3 data points
+
 

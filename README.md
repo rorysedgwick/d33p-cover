@@ -1,7 +1,7 @@
 ## d33p-cover
 #Exploring d3 using the Bank of England public data sets
 
-This project aims to use the Javascript data visualization library known as **d3** (*Data Driven Documents*)
+This project aims to use the Javascript data visualization library known as **D3** (*Data Driven Documents*)
 to highlight some interesting trends or correlations found within public data sets released by the
 Bank of England. The final visualzation will be entered into a competition being organised by the Bank
 at the start of May.
