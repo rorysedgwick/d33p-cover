@@ -16,5 +16,5 @@ deadline of May 1st.
 ``` git clone ```  
 ``` npm install ```  
 ``` node app.js ```  
-visit http://localhost:8000  
+ visit http://localhost:8000  
 ``` behold ```  
