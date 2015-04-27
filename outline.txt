@@ -1,0 +1,21 @@
+# Progression of analysis - expand on qualification vs income to incorporate more detailed comparisons
+    - how much is qual A worth more than qual B?
+        - dependent on year/age?
+    - income of men vs women with equal qualification
+    - how much is qual A worth if you achieved it during decade x?
+        - side by side comparative graphs
+    - show relative numbers and ratios of people achieving each qualification, and how they have changed over time
+        - age & qualification data is available but not the exact year of qualification
+
+    // Data in CSV or JSON for d3 use? Depends on storage in /public or database \\
+# Preparation of data in CSV format - use of papaparse/equivalent to trim and ensure data is in correct format
+    - importing of whole data set may be painfully slow? Check sizes and import rates
+    - Isolating only data points needed at start may preclude chance of answering questions that arise later
+        - If parsing functionality is quick/hassle free enough may be able to reload CSV with relevant data added
+    - Check possibility of pulling average income data from range data points
+        - May have to use mid-point averages again
+
+# Graphical representation:
+    - is column chart still best way to display data points?
+    - line chart requires one axis to be time therefore only suitable to
+
