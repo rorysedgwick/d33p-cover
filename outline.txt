@@ -2,7 +2,7 @@
     - how much is qual A worth more than qual B?
         - dependent on year/age?
     - income of men vs women with equal qualification
-    - how much is qual A worth if you achieved it during decade x?
+    - how much is qual A worth if you achieved it during decade x? Data of qual not recorded
         - side by side comparative graphs
     - show relative numbers and ratios of people achieving each qualification, and how they have changed over time
         - age & qualification data is available but not the exact year of qualification
@@ -32,5 +32,20 @@
         - on request/click:
             - import selected CSV
             - functions populate new array/data objects that are used for d3 data points
+
+
+    - Add homepage including about section and small blurb
+    - Deploy (Heroku?)
+
+
+
+# Data needed from each dataset:
+
+    +(ability to split by gender)
+    qualifications:
+        - total number for each qual
+        - percent of total for each qual
+        - average income for each qual group
+
 
 

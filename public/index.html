@@ -11,24 +11,180 @@
     <div class row>
       <div class="col-md-8">
         <div class="btn-group">
-        <button type="button" class="" id="2004"> 2004 </button>
-        <button type="button" class="" id="2005"> 2005 </button>
-        <button type="button" class="" id="2006"> 2006 </button>
-        <button type="button" class="" id="2007"> 2007 </button>
-        <button type="button" class="" id="2008"> 2008 </button>
-        <button type="button" class="" id="2009"> 2009 </button>
-        <button type="button" class="" id="2010"> 2010 </button>
-        <button type="button" class="" id="2011"> 2011 </button>
+        <button type="button" class="" id="d2004"> 2004 </button>
+        <button type="button" class="" id="d2005"> 2005 </button>
+        <button type="button" class="" id="d2006"> 2006 </button>
+        <button type="button" class="" id="d2007"> 2007 </button>
+        <button type="button" class="" id="d2008"> 2008 </button>
+        <button type="button" class="" id="d2009"> 2009 </button>
+        <button type="button" class="" id="d2010"> 2010 </button>
+        <button type="button" class="" id="d2011"> 2011 </button>
+        <button type="button" class="" id="d2012"> 2012 </button>
+        <button type="button" class="" id="d2013"> 2013 </button>
+        <button type="button" class="" id="d2014"> 2014 </button>
+
       </div>
     </div>
 
   <script type="text/javascript" src="d3/d3.js"></script>
   <script type="text/javascript">
 
-  d3.csv("./data/2004.csv", function(dataset) {
-    // console.log(dataset);
+  // Horrible way of importing all CSV data on page load \\
+  var dataset04, dataset05, dataset06, dataset07, dataset08, dataset09, dataset10, dataset11,dataset12, dataset13, dataset14;
 
-averageAge = function() {
+  // Store all CSV data in separate variables once loaded \\
+  d3.csv("./data/2004.csv", function(data) {
+    dataset04 = data;
+  });
+
+  d3.csv("./data/2005.csv", function(data) {
+    dataset05 = data;
+  });
+
+  d3.csv("./data/2006.csv", function(data) {
+    dataset06 = data;
+  });
+
+  d3.csv("./data/2007.csv", function(data) {
+    dataset07 = data;
+  });
+
+  d3.csv("./data/2008.csv", function(data) {
+      dataset08 = data;
+  });
+
+  d3.csv("./data/2009.csv", function(data) {
+    dataset09 = data;
+  });
+
+  d3.csv("./data/2010.csv", function(data) {
+    dataset10 = data;
+  });
+
+  d3.csv("./data/2011.csv", function(data) {
+    dataset11 = data;
+  });
+
+  d3.csv("./data/2012.csv", function(data) {
+    dataset12 = data;
+  });
+
+  d3.csv("./data/2013.csv", function(data) {
+      dataset13 = data;
+  });
+
+  d3.csv("./data/2014.csv", function(data) {
+      dataset14 = data;
+  });
+
+  // On click trigger d3 render with appropriate data set \\
+  d3.select("#d2004")
+    .on("click", function() {
+      renderD3(dataset04);
+  });
+
+  d3.select("#d2005")
+    .on("click", function() {
+      renderD3(dataset05);
+    });
+
+  d3.select("#d2006")
+    .on("click", function() {
+      renderD3(dataset06);
+    });
+
+  d3.select("#d2007")
+    .on("click", function() {
+      renderD3(dataset07);
+    });
+
+  d3.select("#d2008")
+    .on("click", function() {
+      renderD3(dataset08);
+    });
+
+  d3.select("#d2009")
+    .on("click", function() {
+      renderD3(dataset09);
+    });
+
+  d3.select("#d2010")
+    .on("click", function() {
+      renderD3(dataset10);
+  });
+
+  d3.select("#d2011")
+    .on("click", function() {
+      renderD3(dataset11);
+    });
+
+  d3.select("#d2012")
+    .on("click", function() {
+      renderD3(dataset12);
+    });
+
+  d3.select("#d2013")
+    .on("click", function() {
+      renderD3(dataset13);
+    });
+
+  d3.select("#d2014")
+    .on("click", function() {
+      renderD3(dataset14);
+    });
+  // // ------------------------- end terrible data importing method ------------------------- \\ \\
+
+  function renderD3(dataset) {
+
+  // gender = function() {
+  //   // TODO: allow switching between combined men&women data and data for whole dataset \\
+  // };
+
+  // Calculate average for whole year dataset \\
+
+  // Calculate relative frequences of different qualification \\
+  qualification = function() {
+    var total = dataset.length;
+    var gcse       = [];
+    var vocational = [];
+    var aLevel     = [];
+    var bachelors  = [];
+    var masters    = [];
+    var other      = [];
+    var none       = [];
+    var studying   = [];
+
+    dataset.forEach(function(d) {
+      if(d.qual === "GCSE/O-Level/CSE") {
+        gcse.push(d);
+      }
+      else if(d.qual === "vocational qualifications") {
+        vocational.push(d);
+      }
+      else if(d.qual === "A Level or equivalent") {
+        aLevel.push(d);
+      }
+      else if(d.qual === "Bachelor's degree or equivalent") {
+        bachelors.push(d);
+      }
+      else if(d.qual === "Masters/PhD or equivalent") {
+        masters.push(d);
+      }
+      else if(d.qual === "other") {
+        other.push(d);
+      }
+      else if(d.qual === "no formal qualifications") {
+        none.push(d);
+      }
+      else if(d.qual === "still studying") {
+        studying.push(d);
+      }
+    });
+    // console.log(studying[0]);
+  }();
+
+
+  averageAge = function() {
     var totalAge = 0;
     var idiots = [];
     dataset.forEach(function(d) {
@@ -44,8 +200,8 @@ averageAge = function() {
     var avgAge = totalAge / dataset.length;
     console.log(avgAge);
   }();
-});
 
+  }
 
   </script>
   </body>
