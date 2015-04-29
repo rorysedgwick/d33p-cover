@@ -159,15 +159,10 @@ function renderD3(dataset) {
 
   ];
 
-  // gender = function() {
-  //   // TODO: allow switching between combined men&women data and data for whole dataset \\
-  // };
-
-  // Calculate relative frequences of different qualification \\
+  // Calculate qualification frequencies, relative percent and average incomes  \\
   calculateDataset = function() {
     var totalPeople = dataset.length;
 
-    // TODO: FIX COUNTERS \\
     dataset.forEach(function(d) {
       if((d.qual.match(noneReg))) {
         d.fihhyr2_m = +d.fihhyr2_m;
@@ -258,12 +253,9 @@ function renderD3(dataset) {
         console.log("no match found", d.qual);
       }
     });
-    console.log(totalPeople - NaNCounter);
 
   }();
 
-
-  console.log(finalData);
 
   // Calculate average age of total dataset. Those giving stupid answers are removed from data being used for calculation \\
   averageAge = function() {
@@ -282,6 +274,63 @@ function renderD3(dataset) {
     var avgAge = totalAge / dataset.length;
     // console.log(avgAge);
   }();
+
+
+  // LET THE D3 MADNESS BEGIN \\
+  // ------------------------ //
+
+  var w = 600;
+  var h = 200;
+  var padding = w - 20;
+
+  var xScale = d3.scale.ordinal()
+                       .domain(d3.range(finalData.length))
+                       .rangeRoundBands([padding, w - padding], 0.25);
+
+  var yScaleQual = d3.scale.linear()
+                           .domain([0, d3.max(finalData, function(d) { return d.qualNum; }) ])
+                           .range([h- padding, padding]);
+
+  var yScaleInc = d3.scale.linear()
+                          .domain([0, d3.max(finalData, function(d) { return d.avgInc; }) ])
+                          .range([h - padding, padding]);
+
+  var xAxis = d3.svg.axis()
+                    .scale(xScale)
+                    .tickFormat(function(d) { return d.qual; })
+                    .orient("bottom");
+
+  var yAxisLeft = d3.svg.axis()
+                        .scale(yScaleQual)
+                        .ticks(10)
+                        .orient("left");
+
+  var yAxisRight = d3.svg.axis()
+                         .scale(yScaleInc)
+                         .ticks(10)
+                         .orient("right");
+
+
+  var svg = d3.select("body")
+              .append("svg")
+              .attr({
+                width: w,
+                height: h,
+              });
+
+
+  svg.selectAll("rect")
+     .data(finalData)
+     .enter()
+     .append("rect")
+     .attr({
+        x: function(d, i) { return xScale(i); },
+        y: function(d) { return (yScaleQual(d.qualNum)); },
+        "width": function(d) { return xScale.rangeBand(); },
+        "height": function(d) {return h - yScaleQual(d.qualNum) - padding; },
+        "fill": "grey"
+      });
+
 
 
 }
