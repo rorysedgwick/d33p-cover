@@ -25,13 +25,8 @@
         - average income for each qual group
 
 
-    SOME OF THIS FUNCTIONALITY WILL MOST LIKEly BE DONE FROM WITHIN THE D3 DATA PLOTTING FUNCTIONS - work out which
-
 
 # PLAN OF ATTACK:
- - data needs to be in format that d3 can read and can pull other associated data points - e.g. income for a certain qualification otherwise analysis is void.
- - Therefore values need to be stored in data type that allows links between data points. Object seems like obvious choice; store each person's answers in object and pick values needed for certain d3 elements? PRO: easy to add more values if extending comparisons is possible. Are object values allowed to be outcomes of operations of other object values? For averages etc.
- - Possibly use multiple arrays, difficulty being the data points would need to be indexed identically for each person otherwise data is invalid.
  - Array of objects, each containing data for single qualification i.e. 8 objects. All calculation therefore have to be done prior to inclusion in final data set.
 
 
