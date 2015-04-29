@@ -2,16 +2,10 @@
     - how much is qual A worth more than qual B?
         - dependent on year/age?
     - income of men vs women with equal qualification
-    - how much is qual A worth if you achieved it during decade x? Data of qual not recorded
         - side by side comparative graphs
     - show relative numbers and ratios of people achieving each qualification, and how they have changed over time
         - age & qualification data is available but not the exact year of qualification
 
-    // Data in CSV or JSON for d3 use? Depends on storage in /public or database \\
-# Preparation of data in CSV format - use of papaparse/equivalent to trim and ensure data is in correct format
-    - importing of whole data set may be painfully slow? Check sizes and import rates
-    - Isolating only data points needed at start may preclude chance of answering questions that arise later
-        - If parsing functionality is quick/hassle free enough may be able to reload CSV with relevant data added
     - Check possibility of pulling average income data from range data points
         - May have to use mid-point averages again
 
@@ -19,24 +13,7 @@
     - is column chart still best way to display data points?
     - line chart requires one axis to be time(?)
 
-
-
     --------------------------------------------------------------------------------------------
-
-
-# Steps:
-
-    - Basic server for index - hapi static
-    - Accessing data:
-        - whole files saved in public folder;
-        - on request/click:
-            - import selected CSV
-            - functions populate new array/data objects that are used for d3 data points
-
-
-    - Add homepage including about section and small blurb
-    - Deploy (Heroku?)
-
 
 
 # Data needed from each dataset:
@@ -48,4 +25,33 @@
         - average income for each qual group
 
 
+    SOME OF THIS FUNCTIONALITY WILL MOST LIKEly BE DONE FROM WITHIN THE D3 DATA PLOTTING FUNCTIONS - work out which
 
+
+# PLAN OF ATTACK:
+ - data needs to be in format that d3 can read and can pull other associated data points - e.g. income for a certain qualification otherwise analysis is void.
+ - Therefore values need to be stored in data type that allows links between data points. Object seems like obvious choice; store each person's answers in object and pick values needed for certain d3 elements? PRO: easy to add more values if extending comparisons is possible. Are object values allowed to be outcomes of operations of other object values? For averages etc.
+ - Possibly use multiple arrays, difficulty being the data points would need to be indexed identically for each person otherwise data is invalid.
+ - Array of objects, each containing data for single qualification i.e. 8 objects. All calculation therefore have to be done prior to inclusion in final data set.
+
+
+    --------------------------------------------------------------------------------------------
+
+YEARS WITH QUALIFICATION DATA:          YEARS WITH INCOME DATA(MIDPOINTS):
+
+                                            2004
+                                            2005
+                                            2006
+                                            2007
+    2008                                    2008
+    2009                                    2009
+    2010                                    2010
+    2011                                    2011
+
+    2013
+    2014                                    2014
+
+    --------------------------------------------------------------------------------------------
+
+    - Add homepage including about section and small blurb - modify index.html and add route for graphical page
+    - Deploy (Heroku?)
