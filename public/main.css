@@ -8,11 +8,6 @@ svg {
     margin: auto
 }
 
-.btn {
-  border: 2px solid black;
-  margin: auto;
-}
-
 .btn-group {
     display: block;
     margin: auto;
@@ -20,6 +15,11 @@ svg {
     border-radius: 8px;
     box-shadow: none;
     margin: 25px 5px;
+}
+
+.btn {
+  border: 2px solid black;
+  margin: auto;
 }
 
 .axis path,
@@ -33,4 +33,7 @@ svg {
     font-size: 11px;
 }
 
-
+.yAxisRight {
+  stroke: blue;
+  text: blue;
+}
