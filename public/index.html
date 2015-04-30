@@ -4,24 +4,24 @@
   <head>
     <meta charset="utf-8">
     <title>187</title>
-    <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
+    <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   </head>
   <body>
     <div class row>
       <div class="col-md-8">
         <div class="btn-group">
-        <button type="button" class="" id="d2004"> 2004 </button>
-        <button type="button" class="" id="d2005"> 2005 </button>
-        <button type="button" class="" id="d2006"> 2006 </button>
-        <button type="button" class="" id="d2007"> 2007 </button>
-        <button type="button" class="" id="d2008"> 2008 </button>
-        <button type="button" class="" id="d2009"> 2009 </button>
-        <button type="button" class="" id="d2010"> 2010 </button>
-        <button type="button" class="" id="d2011"> 2011 </button>
-        <button type="button" class="" id="d2012"> 2012 </button>
-        <button type="button" class="" id="d2013"> 2013 </button>
-        <button type="button" class="" id="d2014"> 2014 </button>
+        <button type="button" class="btn" id="d2004"> 2004 </button>
+        <button type="button" class="btn" id="d2005"> 2005 </button>
+        <button type="button" class="btn" id="d2006"> 2006 </button>
+        <button type="button" class="btn" id="d2007"> 2007 </button>
+        <button type="button" class="btn" id="d2008"> 2008 </button>
+        <button type="button" class="btn" id="d2009"> 2009 </button>
+        <button type="button" class="btn" id="d2010"> 2010 </button>
+        <button type="button" class="btn" id="d2011"> 2011 </button>
+        <button type="button" class="btn" id="d2012"> 2012 </button>
+        <button type="button" class="btn" id="d2013"> 2013 </button>
+        <button type="button" class="btn" id="d2014"> 2014 </button>
 
       </div>
     </div>
@@ -30,7 +30,8 @@
   <script type="text/javascript">
 
   // Horrible way of importing all CSV data on page load \\
-  var dataset04, dataset05, dataset06, dataset07, dataset08, dataset09, dataset10, dataset11,dataset12, dataset13, dataset14;
+  var dataset04, dataset05, dataset06, dataset07, dataset08, dataset09,
+  dataset10, dataset11, dataset12, dataset13, dataset14;
 
   // Store all CSV data in separate variables once loaded \\
   d3.csv("./data/2004.csv", function(data) {
@@ -281,7 +282,7 @@ function renderD3(dataset) {
 
   var w = 600;
   var h = 200;
-  var padding = w - 20;
+  var padding = w / 12;
 
   var xScale = d3.scale.ordinal()
                        .domain(d3.range(finalData.length))
@@ -332,6 +333,36 @@ function renderD3(dataset) {
       });
 
 
+
+     svg.append("g")
+        .attr({
+          "class": "yl axis",
+          "transform": "translate(0, " + (h - padding) + ")"
+        })
+        .call(xAxis);
+
+    svg.append("text.xAxis")
+       .attr({
+        "class": "xLabel",
+        "text-anchor":"middle",
+        x: function() { return w - padding; },
+        y: function() { return h - padding; },
+       })
+       .text("Highest education qualification");
+
+    svg.append("g")
+       .attr({
+        "class": "yl axis",
+        "transform": "translate(" + (padding) + ", 0)",
+       })
+       .call(yAxisLeft);
+
+    svg.append("g")
+       .attr({
+        "class": "yr axis",
+        "transform": "translate(" + (w - (padding)) + ", 0)",
+       })
+       .call(yAxisRight);
 
 }
 

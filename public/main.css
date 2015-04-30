@@ -1,0 +1,36 @@
+body {
+    font-family: 'Khula', sans-serif;
+}
+
+
+svg {
+    display: block;
+    margin: auto
+}
+
+.btn {
+  border: 2px solid black;
+  margin: auto;
+}
+
+.btn-group {
+    display: block;
+    margin: auto;
+    padding: 6px;
+    border-radius: 8px;
+    box-shadow: none;
+    margin: 25px 5px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+
