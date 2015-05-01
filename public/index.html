@@ -11,19 +11,15 @@
     <div class row>
       <div class="col-md-8">
         <div class="btn-group">
-        <!-- <button type="button" class="btn" id="d2004"> 2004 </button> -->
-        <!-- <button type="button" class="btn" id="d2005"> 2005 </button> -->
-        <!-- <button type="button" class="btn" id="d2006"> 2006 </button> -->
-        <!-- <button type="button" class="btn" id="d2007"> 2007 </button> -->
         <button type="button" class="btn" id="d2008"> 2008 </button>
         <button type="button" class="btn" id="d2009"> 2009 </button>
         <button type="button" class="btn" id="d2010"> 2010 </button>
         <button type="button" class="btn" id="d2011"> 2011 </button>
-        <!-- <button type="button" class="btn" id="d2012"> 2012 </button> -->
-        <!-- <button type="button" class="btn" id="d2013"> 2013 </button> -->
         <button type="button" class="btn" id="d2014"> 2014 </button>
 
       </div>
+    </div>
+    <div class="color">
     </div>
 
   <script type="text/javascript" src="d3/d3.js"></script>
@@ -239,10 +235,10 @@
           }
         } else {
           console.log("no match found", d.qual);
+          NaNCounter += 1;
         }
 
       });
-        console.log("data", finalData);
         console.log("NaN", NaNCounter);
 
     }();
@@ -270,14 +266,10 @@
     // LET THE D3 MADNESS BEGIN \\
     // ------------------------ //
 
-    var w = 600;
-    var h = 400;
-    var padding = w / 10;
-
     // Define scales for x and both y axes \\
     var xScale = d3.scale.ordinal()
                          .domain(d3.range(finalData.length))
-                         .rangeRoundBands([padding, w - padding], 0.25);
+                         .rangeRoundBands([padding, w - padding], 0.125);
 
     var yScaleQual = d3.scale.linear()
                              .domain([0, d3.max(finalData, function(d) { return d.percent; }) ])
@@ -315,7 +307,7 @@
           y: function(d) { return (yScaleQual(d.percent)); },
           "width": function(d) { return xScale.rangeBand(); },
           "height": function(d) {return h - yScaleQual(d.percent) - padding; },
-          "fill": "grey"
+          "fill": "lightskyblue"
         });
 
     // Add text labels to bar chart elements \\
@@ -329,6 +321,7 @@
           x: function(d, i) { return xScale(i); },
           y: h -padding,
           "font-size": "10px",
+          "fill": "lightskyblue",
           dy: "1.5em"
        });
 
@@ -339,9 +332,8 @@
        .attr({
         cx: function(d, i) { return xScale(i) + xScale.rangeBand() / 2; },
         cy: function (d) { return yScaleInc(d.avgInc); },
-        r: function(d) { return h /60; },
-        "stroke": "black",
-        "fill": "blue"
+        r: function(d) { return h / 80; },
+        "fill": "forestgreen"
        });
 
 
@@ -352,6 +344,8 @@
         "text-anchor":"middle",
         x: function() { return w / 2; },
         y: function() { return h - (padding / 2); },
+        "stroke-width": "0.5px",
+        "fill": "lightskyblue"
        })
        .text("Highest qualification achieved");
 
@@ -362,7 +356,7 @@
         "transform": "rotate(-90)",
         x: 0 - (h / 2),
         y: 0 + (padding / 3),
-        "fill": "grey",
+        "fill": "lightskyblue",
        })
        .style("text-anchor", "middle")
        .text("Percent achieving each qualification");
@@ -374,7 +368,7 @@
         "transform": "rotate(+90)",
         x: h / 2,
         y: 0 - (w - padding / 6),
-        "fill": "blue",
+        "fill": "forestgreen",
        })
        .style("text-anchor", "middle")
        .text("Average income per qualification, £GBP");
@@ -384,7 +378,8 @@
        .attr({
         "class": "graphTitle",
         x: (w - padding) / 2,
-        y: 0 + (padding / 2)
+        y: 0 + (padding / 2),
+        "font-size": "18px"
        })
        .style("text-anchor", "middle")
        .text("Average income for people holding various qualifications");
@@ -394,7 +389,9 @@
     svg.append("g")
        .attr({
          "class": "x axis",
-         "transform": "translate(0, " + (h - padding) + ")"
+         "transform": "translate(0, " + (h - padding) + ")",
+         "stroke": "lightskyblue",
+         "stroke-width": "0.5px"
        })
        .call(xAxis);
 
@@ -402,7 +399,8 @@
        .attr({
         "class": "yl axis",
         "transform": "translate(" + (padding) + ", 0)",
-        "fill": "grey",
+        "stroke": "lightskyblue",
+        "stroke-width": "0.5px"
        })
        .call(yAxisLeft);
 
@@ -410,7 +408,8 @@
        .attr({
         "class": "yr axis",
         "transform": "translate(" + (w - (padding)) + ", 0)",
-        "fill": "blue",
+        "stroke-width": "0.5px",
+        "stroke": "forestgreen"
        })
        .call(yAxisRight);
     }
@@ -540,7 +539,7 @@
     // Define scales for x and both y axes \\
     var xScale = d3.scale.ordinal()
                          .domain(d3.range(finalData.length))
-                         .rangeRoundBands([padding, w - padding], 0.25);
+                         .rangeRoundBands([padding, w - padding], 0.125);
 
     var yScaleQual = d3.scale.linear()
                              .domain([0, d3.max(finalData, function(d) { return d.percent; }) ])
@@ -577,7 +576,7 @@
           y: function(d) { return (yScaleQual(d.percent)); },
           "width": function(d) { return xScale.rangeBand(); },
           "height": function(d) {return h - yScaleQual(d.percent) - padding; },
-          "fill": "grey"
+          "fill": "lightskyblue"
         });
 
     // Append updated circle elements to page showing average income \\
@@ -587,8 +586,7 @@
        .delay(function(d, i) { return i / finalData.length * 1000; })
        .attr({
           cy: function (d) { return yScaleInc(d.avgInc); },
-          "stroke": "black",
-          "fill": "blue"
+          "fill": "forestgreen"
        });
 
 
