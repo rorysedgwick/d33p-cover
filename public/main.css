@@ -2,22 +2,23 @@ body {
     font-family: 'Khula', sans-serif;
 }
 
-
 svg {
     display: block;
     margin: auto
 }
 
 .btn-group {
-    display: block;
-    margin: auto;
-    padding: 6px;
-    border-radius: 8px;
-    box-shadow: none;
-    margin: 25px 5px;
+  text-align: center;
+  display: block;
+  margin: auto;
+  padding: 6px;
+  border-radius: 8px;
+  box-shadow: none;
+  margin: 25px 5px;
+  color: white;
 }
 
-.btn {
+div.btn {
   border: 2px solid black;
   margin: auto;
 }
@@ -37,3 +38,24 @@ svg {
   width: 150px;
   top: 100px;
   left: 200px;
+}
+
+.footer {
+text-align: center;
+}
+
+.header {
+  text-align: center;
+}
+
+.intro {
+  text-align: center;
+}
+
+.qual {
+  color: black;
+}
+
+.graphTitle {
+  color: grey;
+}
