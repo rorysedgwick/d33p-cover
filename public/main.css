@@ -28,10 +28,12 @@ div.btn {
     fill: none;
     shape-rendering: crispEdges;
 }
+
 .axis text {
     font-family: sans-serif;
     font-size: 11px;
 }
+
 .color {
   position: absolute;
   height: 150px;
