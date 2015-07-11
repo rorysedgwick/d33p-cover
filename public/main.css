@@ -15,12 +15,24 @@ svg {
   border-radius: 8px;
   box-shadow: none;
   margin: 25px 5px;
+}
+
+.btn-group .btn {
+  color: white;
+  background-color: green;
+}
+
+.btn-group .btn:focus {
+  outline: none;
   color: white;
 }
 
-div.btn {
-  border: 2px solid black;
-  margin: auto;
+.btn-group .btn:active {
+  outline: none;
+}
+
+.btn-group .btn:hover {
+  color: white;
 }
 
 .axis path,
