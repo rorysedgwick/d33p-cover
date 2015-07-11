@@ -3,7 +3,7 @@ var server = new Hapi.Server();
 var Path   = require("path");
 
 server.connection({
-  port: 8000 || Number(process.env.PORT)
+  port: Number(process.env.PORT) || 8000
 });
 
 server.route({
