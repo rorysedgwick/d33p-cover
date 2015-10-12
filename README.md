@@ -5,7 +5,7 @@
 
 This project aims to use the Javascript data visualization library known as **D3** (*Data Driven Documents*)
 to highlight some interesting trends or correlations found within public data sets released by the
-Bank of England. The final visualzation will be entered into a competition being organised by the Bank
+Bank of England. The final visualization will be entered into a competition being organised by the Bank
 at the start of May.
 
 It is primarily intended to be an week-long learning experience focusing on d3 methods and techniques,
